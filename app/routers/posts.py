@@ -13,11 +13,11 @@ import psycopg2
 from psycopg2.extras import RealDictCursor
 import time
 from sqlalchemy import func
-
+from app.config import settings
 router=APIRouter(tags=['Posts'])
 while True:
     try:
-        conn=psycopg2.connect(host='localhost',database='fastapi',user='postgres',password='Mithi&doshi21',
+        conn=psycopg2.connect(host=settings.database_host,database=settings.database_name,user=settings.database_username,password=settings.database_password,
         cursor_factory=RealDictCursor)
         cursor=conn.cursor()
         print("connected to database")
