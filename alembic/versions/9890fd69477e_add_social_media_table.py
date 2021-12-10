@@ -29,4 +29,5 @@ def upgrade():
 
 
 def downgrade():
-    op.drop_table('social_media')
+    #op.drop_table('social_media')
+    pass
