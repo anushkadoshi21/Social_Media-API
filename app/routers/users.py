@@ -5,7 +5,7 @@ from ..database import  engine,get_db
 from fastapi import FastAPI,Response,status,HTTPException,Depends,APIRouter
 
 router=APIRouter(tags=['Users'])
-@router.get("/users",status_code=status.HTTP_201_CREATED,response_model=schema.User_out)
+@router.post("/users",status_code=status.HTTP_201_CREATED,response_model=schema.User_out)
 def create_users(post:schema.User,db:Session=Depends(get_db)):
     post.password=utils.hash(post.password)
     data=models.User(**post.dict())
